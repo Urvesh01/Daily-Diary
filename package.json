@@ -1,0 +1,43 @@
+{
+  "name": "diary-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Daily Assessment Diary – Angular frontend + Express API (Vercel ready)",
+  "engines": {
+    "node": "20.x"
+  },
+  "scripts": {
+    "start": "ng serve --proxy-config proxy.conf.json",
+    "api": "node --env-file-if-exists=.env server/dev.js",
+    "dev": "concurrently -n api,web -c blue,green \"npm:api\" \"npm:start\"",
+    "build": "ng build",
+    "test:pdf": "node scripts/pdf-preview.mjs"
+  },
+  "dependencies": {
+    "@angular/common": "^19.2.0",
+    "@angular/compiler": "^19.2.0",
+    "@angular/core": "^19.2.0",
+    "@angular/forms": "^19.2.0",
+    "@angular/platform-browser": "^19.2.0",
+    "@tailwindcss/postcss": "^4.1.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "jspdf": "^4.2.1",
+    "mongoose": "^8.9.0",
+    "postcss": "^8.5.0",
+    "rxjs": "~7.8.0",
+    "tailwindcss": "^4.1.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.0",
+    "@angular/cli": "^19.2.0",
+    "@angular/compiler-cli": "^19.2.0",
+    "concurrently": "^9.1.0",
+    "esbuild": "^0.25.0",
+    "typescript": "~5.7.2"
+  }
+}

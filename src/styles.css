@@ -1,0 +1,132 @@
+@import "tailwindcss";
+/* Two looks: "modern" (soft, rounded) and "classic" (serif, ruled like the paper diary) */
+[data-theme="modern"] {
+  --bg: #f1f5f9;
+  --card: #fff;
+  --ink: #1e293b;
+  --mute: #64748b;
+  --line: #e2e8f0;
+  --acc: #0b74c4;
+  --ttl: #0b74c4;
+  --r: 14px;
+  --ff: Inter, system-ui, sans-serif;
+}
+[data-theme="classic"] {
+  --bg: #fff;
+  --card: #fff;
+  --ink: #000;
+  --mute: #555;
+  --line: #000;
+  --acc: #0b74c4;
+  --ttl: #e01b1b;
+  --r: 0px;
+  --ff: Tinos, "Times New Roman", serif;
+}
+body {
+  margin: 0;
+}
+.app {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--ff);
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.sec {
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--acc);
+  border-bottom: 1px solid var(--line);
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  border-bottom: 1px solid var(--line);
+}
+.row > label {
+  padding: 0.6rem 1rem;
+  border-right: 1px solid var(--line);
+}
+.inp {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--r) / 3);
+}
+.inp:focus {
+  outline: 2px solid var(--acc);
+}
+.btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--acc);
+  color: var(--acc);
+  border-radius: calc(var(--r) / 2);
+  background: var(--card);
+  cursor: pointer;
+}
+.btn.p {
+  background: var(--acc);
+  color: #fff;
+}
+.btn.d {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+.ttl {
+  color: var(--ttl);
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 0.5rem 0 1rem;
+}
+.cal {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.cal > div {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--r) / 3);
+  cursor: pointer;
+}
+.s-submitted {
+  background: #16a34a;
+  color: #fff;
+}
+.s-draft {
+  background: #f59e0b;
+  color: #000;
+}
+.s-missed {
+  background: #fecaca;
+  color: #7f1d1d;
+}
+.s-pending {
+  background: var(--card);
+}
+.err {
+  border-color: #dc2626 !important;
+}
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+@media print {
+  .noprint {
+    display: none;
+  }
+}
